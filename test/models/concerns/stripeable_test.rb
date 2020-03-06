@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module FiatStripe
+module FiatUsers
   class Concerns::Stripeable < ActiveSupport::TestCase
     test "should create Stripe customer" do
       customer = Customer.create(name: "Test customer")

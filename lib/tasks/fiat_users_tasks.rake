@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :fiat_stripe do
+# task :fiat_users do
 #   # Task goes here
 # end

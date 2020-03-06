@@ -1,6 +1,6 @@
-module FiatStripe
+module FiatUsers
   class Engine < ::Rails::Engine
-    isolate_namespace FiatStripe
+    isolate_namespace FiatUsers
 
     # This allows an app to override model / controller code using decorator pattern: https://edgeguides.rubyonrails.org/engines.html#a-note-on-decorators-and-loading-code
     config.to_prepare do

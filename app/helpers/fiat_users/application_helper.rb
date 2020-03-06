@@ -1,4 +1,4 @@
-module FiatStripe
+module FiatUsers
   module ApplicationHelper
   end
 end
