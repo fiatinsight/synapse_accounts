@@ -1,5 +1,21 @@
+# See: http://lizabinante.com/blog/creating-a-configurable-ruby-gem/
+require 'fiat_users/configuration'
 require "fiat_users/engine"
 
 module FiatUsers
-  # mattr_accessor :live_default_plan_id
+  class << self
+    attr_accessor :configuration
+  end
+
+  def self.configuration
+    @configuration ||= Configuration.new
+  end
+
+  def self.reset
+    @configuration = Configuration.new
+  end
+
+  def self.configure
+    yield(configuration)
+  end
 end
