@@ -6,6 +6,7 @@ module Welcomeable
   end
 
   def send_welcome_email
+    # Should be in a job
     client = Postmark::ApiClient.new(FiatUsers.configuration.postmark_api_token)
 
     client.deliver_with_template(
