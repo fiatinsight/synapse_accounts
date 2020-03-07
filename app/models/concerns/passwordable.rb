@@ -2,14 +2,15 @@ module Passwordable
   extend ActiveSupport::Concern
 
   included do
-    after_commit :generate_password, on: :create
+    before_validation :generate_password, on: :create
   end
 
   def generate_password
-    # Should be in a job
+    # This can't be in a job b/c before_validation won't allow serializing the request b/c there isn't an ID yet
     if !self.encrypted_password.present?
       password = Devise.friendly_token.first(10)
-      self.update(password: password, password_confirmation: password)
+      self.password = password
+      self.password_confirmation = password
     end
   end
 end
