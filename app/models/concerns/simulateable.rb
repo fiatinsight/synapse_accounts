@@ -1,4 +1,4 @@
-module Simulatable
+module Simulateable
   extend ActiveSupport::Concern
 
   included do
