@@ -1,4 +1,22 @@
-# Fiat Users
+# Synapse Accounts
+
+## Usage
+
+### For authentication
+
+There are a number of model concerns that allow you to do typical things with authentication-enabled classes within your application.
+
+#### CreateAuthenticable
+#### Passwordable
+#### Welcomeable
+#### Profileable
+#### Simulateable
+#### SetCurrentProfile
+
+### For accounts
+
+#### Accountable
+#### SetCurrentAccount
 
 ## Development
 
