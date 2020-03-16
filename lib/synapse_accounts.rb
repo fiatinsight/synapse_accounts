@@ -1,8 +1,8 @@
 # See: http://lizabinante.com/blog/creating-a-configurable-ruby-gem/
-require 'fiat_users/configuration'
-require "fiat_users/engine"
+require 'synapse-accounts/configuration'
+require "synapse-accounts/engine"
 
-module FiatUsers
+module SynapseAccounts
   class << self
     attr_accessor :configuration
   end

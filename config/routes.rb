@@ -1,2 +1,2 @@
-FiatUsers::Engine.routes.draw do
+SynapseAccounts::Engine.routes.draw do
 end

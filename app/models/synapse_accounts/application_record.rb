@@ -1,4 +1,4 @@
-module FiatUsers
+module SynapseAccounts
   class ApplicationRecord < ActiveRecord::Base
     self.abstract_class = true
   end

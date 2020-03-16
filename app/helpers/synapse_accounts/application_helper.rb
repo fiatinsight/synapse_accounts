@@ -1,4 +1,4 @@
-module FiatUsers
+module SynapseAccounts
   module ApplicationHelper
   end
 end

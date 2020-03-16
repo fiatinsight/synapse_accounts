@@ -1,4 +1,4 @@
-module FiatUsers
+module SynapseAccounts
   class ApplicationJob < ActiveJob::Base
   end
 end
