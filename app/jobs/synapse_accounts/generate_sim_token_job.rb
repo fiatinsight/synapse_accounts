@@ -1,4 +1,4 @@
-class FiatUsers::GenerateSimTokenJob < FiatUsers::ApplicationJob
+class SynapseAccounts::GenerateSimTokenJob < SynapseAccounts::ApplicationJob
   queue_as :default
 
   def perform(user)

@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount FiatUsers::Engine => "/fiat_users"
+  mount SynapseAccounts::Engine => "/synapse-accounts"
 end

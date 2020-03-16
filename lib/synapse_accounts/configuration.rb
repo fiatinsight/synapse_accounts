@@ -1,4 +1,4 @@
-module FiatUsers
+module SynapseAccounts
   class Configuration
     attr_accessor :postmark_api_token, :from_email_address, :welcome_email_template_id
 
