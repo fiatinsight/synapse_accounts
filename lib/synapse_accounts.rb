@@ -1,6 +1,6 @@
 # See: http://lizabinante.com/blog/creating-a-configurable-ruby-gem/
-require 'synapse-accounts/configuration'
-require "synapse-accounts/engine"
+require 'synapse_accounts/configuration'
+require "synapse_accounts/engine"
 
 module SynapseAccounts
   class << self
