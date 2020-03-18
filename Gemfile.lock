@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    synapse-accounts (0.1.0)
+    synapse_accounts (0.1.0)
       postmark-rails
       rails (~> 6.0.2, >= 6.0.2.1)
       sidekiq
@@ -159,7 +159,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  synapse-accounts!
+  synapse_accounts!
   sqlite3
 
 BUNDLED WITH
