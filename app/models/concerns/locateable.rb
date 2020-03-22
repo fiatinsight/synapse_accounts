@@ -3,6 +3,11 @@ module Locateable # NOTE: `Addressable` conflicts w/ another class
 
   # Requires validation for :address_line_1, :city, :state, and :zip on model
 
+  included do
+    # geocoded_by :full_address_string
+    # after_validation :geocode
+  end
+
   def full_address_string
     if self.address_line_2?
       string = "#{self.address_line_1}, #{self.address_line_2}, #{self.city}, #{self.state} #{self.zip}"

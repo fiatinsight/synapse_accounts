@@ -21,6 +21,8 @@ Gem::Specification.new do |s|
   s.add_dependency "duo_web"
   s.add_dependency "postmark-rails"
   s.add_dependency "sidekiq"
+  s.add_dependency "geocoder"
+  s.add_dependency "gmaps4rails"
 
   # s.add_development_dependency "mysql2"
   s.add_development_dependency "sqlite3"
