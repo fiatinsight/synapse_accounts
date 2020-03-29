@@ -8,22 +8,15 @@ module SetCurrentAccount
   private
 
     def current_account
-      # Sets a current client based on Current.testing_center or Current.profile
-
-      # NOTE: This should *not* be configured to set Current.client based on URL parameters, since those can be hacked, and since they match for access validation in the profile-level controllers, e.g., SuperController
-
-      if params[:client_token]
-        session[:client_token] = params[:client_token]
+      if params[:account_token]
+        session[:account_token] = params[:account_token]
       end
 
-      if signed_in? && session[:client_token]
-        Current.client = Client.find_by(token: session[:client_token])
-      elsif Current.testing_center
-        Current.client = Client.find(Current.testing_center.client_id)
-      elsif Current.profile && Current.profile.client_id
-        Current.client = Client.find(Current.profile.client_id)
+      if signed_in? && session[:account_token]
+        Current.account = eval(SynapseAccounts.configuration.account_model).find_by(token: session[:account_token])
+        # Passing a token is the safest and can be easily configured from the main app's ApplicationController after_sign_in_path_for method
       else
-        Current.client = nil
+        Current.account = nil
       end
     end
 end

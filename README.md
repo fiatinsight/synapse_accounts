@@ -2,6 +2,18 @@
 
 ## Usage
 
+Create an initializer and set any required config variables:
+
+```ruby
+SynapseAccounts.configure do |config|
+  config.from_email_address = "email@example.com"
+  config.welcome_email_template_id = 17045345
+  config.postmark_api_token = Rails.application.credentials.postmark[:api_token]
+  config.account_model = "Organization"
+end
+
+```
+
 ### For authentication
 
 There are a number of model concerns that allow you to do typical things with authentication-enabled classes within your application.
@@ -17,6 +29,12 @@ There are a number of model concerns that allow you to do typical things with au
 
 #### Accountable
 #### SetCurrentAccount
+
+In your main app, include `:account` in the list of `Current` attributes. Also, set `config.model_class` in an initializer. Then in your `ApplicationController` add:
+
+```ruby
+include SetCurrentAccount
+```
 
 ## Development
 
