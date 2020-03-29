@@ -2,7 +2,11 @@ module Profileable
   extend ActiveSupport::Concern
 
   included do
-    # code
+    #code
+  end
+
+  def full_name
+    #code
   end
 
 end

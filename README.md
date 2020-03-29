@@ -14,20 +14,51 @@ end
 
 ```
 
-### For authentication
+### For models
 
-There are a number of model concerns that allow you to do typical things with authentication-enabled classes within your application.
+There are a number of model concerns that allow you to do typical things with authentication / account-style classes within your application.
+
+#### Passwordable
+
+This module generates a Devise-friendly password for any model that has `include Passwordable`. It requires fields for `password` and `password_confirmation`.
+
+#### Welcomeable
+
+A model concern for sending a welcome email on record creation. It requires setting configuration variables for `config.from_email_address`, `config.welcome_email_template_id`, and `config.postmark_api_token`.
+
+#### Profileable
+
+> Note: This is only a stub.
+
+#### Simulateable
+
+Generates a simulation token for any model with `include Simulateable`. Requires a `sim_token` field.
+
+### For controllers
+
+The following controller concerns make setting account and authentication information easier within your app.
 
 #### CreateAuthenticable
-#### Passwordable
-#### Welcomeable
-#### Profileable
-#### Simulateable
+
+`CreateAuthenticable` includes two methods: `create_authenticable` and `link_authenticable_to_profile`.
+
+`create_authenticable` allows you to generate a new record for your authentication class(es). It requires arguments for model name and email, and returns an `@authenticable` instance variable. `link_authenticable_to_profile` enables connecting your authentication record to a `Profileable` class. It requires arguments for an authenticable instance, a profile type, and the profile ID.
+
+You can invoke them in tandem from a single controller action, for example:
+
+```ruby
+def create_account_for_person
+  person = # Set using params, or Person.find(params[:id])
+  email = # Set using params
+  create_authenticable("User", email)
+  link_authenticable_to_profile(@authenticable, "Person", person.id)
+end
+```
+
 #### SetCurrentProfile
 
-### For accounts
+> Note: This is only a stub.
 
-#### Accountable
 #### SetCurrentAccount
 
 In your main app, include `:account` in the list of `Current` attributes. Also, set `config.model_class` in an initializer. Then in your `ApplicationController` add:
