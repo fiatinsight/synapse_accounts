@@ -26,10 +26,6 @@ This module generates a Devise-friendly password for any model that has `include
 
 A model concern for sending a welcome email on record creation. It requires setting configuration variables for `config.from_email_address`, `config.welcome_email_template_id`, and `config.postmark_api_token`.
 
-#### Profileable
-
-> Note: This is only a stub.
-
 #### Simulateable
 
 Generates a simulation token for any model with `include Simulateable`. Requires a `sim_token` field.
@@ -55,17 +51,31 @@ def create_account_for_person
 end
 ```
 
-#### SetCurrentProfile
-
-> Note: This is only a stub.
-
 #### SetCurrentAccount
 
-In your main app, include `:account` in the list of `Current` attributes. Also, set `config.model_class` in an initializer. Then in your `ApplicationController` add:
+Accounts are the sort of thing you'll want to have flexibility to configure in your main app. This gem doesn't provide methods for dealing with account-style setup; only for setting a current account for controlling access. You'll need to associate account profiles and internal account access / permissions locally.
+
+To enable current accounts, in your main app, include `:account` in the list of `Current` attributes. Also, set `config.model_class` in an initializer; that model will need to have a `token` field. Then in your `ApplicationController` add:
 
 ```ruby
 include SetCurrentAccount
 ```
+
+To set a current account, pass a parameter for `account_token` in a request; that'll be stored in session until removed.
+
+#### SetCurrentTeam
+
+Teams are similar to accounts. To enable current teams, in your main app, include `:team` in the list of `Current` attributes. Also, set `config.team_class` in an initializer; that model will need to have a `token` field. Then in your `ApplicationController` add:
+
+```ruby
+include SetCurrentTeam
+```
+
+To set a current team, pass a parameter for `team_token` in a request; that'll be stored in session until removed.
+
+#### SetCurrentProfile
+
+> Note: This is only a stub.
 
 ## Development
 
