@@ -4,10 +4,18 @@ module Phoneable
   # Requires validation for :phone
 
   included do
-    #code
+    before_commit :scrub_phone_number
   end
 
-  def raw_phone_number
-    self.phone.gsub(/[^0-9]/, "")
+  def scrub_phone_number
+    if self.phone
+      scrubbed_number = self.phone.gsub(/[^0-9]/, "")
+      self.update(phone: scrubbed_number)
+    end
+  end
+
+  def ensure_length
+    # TODO: Add length assurance (10 digits)?
+    #code
   end
 end
