@@ -4,7 +4,7 @@ module Phoneable
   # Requires validation for :phone
 
   included do
-    before_commit :scrub_phone_number
+    before_commit :scrub_phone_number, on: [:create, :update]
   end
 
   def scrub_phone_number
