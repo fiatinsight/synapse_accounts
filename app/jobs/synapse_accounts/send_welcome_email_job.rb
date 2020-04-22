@@ -10,7 +10,9 @@ class SynapseAccounts::SendWelcomeEmailJob < SynapseAccounts::ApplicationJob
      :template_id=>SynapseAccounts.configuration.welcome_email_template_id,
      :template_model=>
       { "email"=>user.email,
-        "password"=>user.password
+        "password"=>user.password,
+        "product_name"=>user.welcomeable_product_name,
+        "reset_password_link"=>user.reset_password_link
       }
     })
   end

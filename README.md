@@ -26,6 +26,8 @@ This module generates a Devise-friendly password for any model that has `include
 
 A model concern for sending a welcome email on record creation. It requires setting configuration variables for `config.from_email_address`, `config.welcome_email_template_id`, and `config.postmark_api_token`.
 
+Requires `welcomeable_product_name` and `reset_password_link` defined on the model.
+
 #### Simulateable
 
 Generates a simulation token for any model with `include Simulateable`. Requires a `sim_token` field.
